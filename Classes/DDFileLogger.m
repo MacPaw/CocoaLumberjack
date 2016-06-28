@@ -948,8 +948,10 @@ unsigned long long const kDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; // 20
     if (_currentLogFileHandle == nil) {
         NSString *logFilePath = [[self currentLogFileInfo] filePath];
 
-        _currentLogFileHandle = [NSFileHandle fileHandleForWritingAtPath:logFilePath];
-        [_currentLogFileHandle seekToEndOfFile];
+        int fd = open([logFilePath cStringUsingEncoding:NSUTF8StringEncoding], O_WRONLY | O_APPEND | O_CREAT);
+        if (fd >= 0) {
+            _currentLogFileHandle = [[NSFileHandle alloc] initWithFileDescriptor:fd closeOnDealloc:YES];
+        }
 
         if (_currentLogFileHandle) {
             [self scheduleTimerToRollLogFileDueToAge];
