@@ -1544,7 +1544,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "MODULEMAP_FILE=\"${PROJECT_DIR}/Framework/Lumberjack/CocoaLumberjack.modulemap\"\nif [ ! -f \"${MODULEMAP_FILE}\" ]; then\n    echo \"Could not find modulemap file\"\n    exit 1\nfi\n\nDST_PATH=\"${CONFIGURATION_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/module.modulemap\"\nTMP_FILE=\"${DST_PATH}.tmp\"\ncp -p \"${MODULEMAP_FILE}\" \"${TMP_FILE}\"\nsed -e \"s/framework module CocoaLumberjack/module CocoaLumberjack/\" \"${TMP_FILE}\" >> \"${DST_PATH}\"\nrm -f \"${TMP_FILE}\"\nif [ ! -f \"${DST_PATH}\" ]; then\n    echo \"Could not copy modulemap file\"\n    exit 1\nfi\n";
+			shellScript = "MODULEMAP_FILE=\"${PROJECT_DIR}/Framework/Lumberjack/CocoaLumberjack.modulemap\"\nif [ ! -f \"${MODULEMAP_FILE}\" ]; then\n    echo \"Could not find modulemap file\"\n    exit 1\nfi\n\nDST_PATH=\"${CONFIGURATION_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/module.modulemap\"\nTMP_FILE=\"${DST_PATH}.tmp\"\nrm -f \"${DST_PATH}\" \"${TMP_FILE}\"\n\ncp -p \"${MODULEMAP_FILE}\" \"${TMP_FILE}\"\nsed -e \"s/framework module CocoaLumberjack/module CocoaLumberjack/\" \"${TMP_FILE}\" >> \"${DST_PATH}\"\nrm -f \"${TMP_FILE}\"\nif [ ! -f \"${DST_PATH}\" ]; then\n    echo \"Could not copy modulemap file\"\n    exit 1\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
