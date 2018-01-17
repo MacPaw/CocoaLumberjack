@@ -1242,6 +1242,7 @@
 				33E20ECC1F7B8FF700EB47ED /* Frameworks */,
 				33E20ECD1F7B8FF700EB47ED /* Headers */,
 				33E20EF51F7B944400EB47ED /* Run Script: Copy Modulemap */,
+				33757D23200F605A00E06E27 /* Run Script: Move Headers */,
 			);
 			buildRules = (
 			);
@@ -1532,6 +1533,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		33757D23200F605A00E06E27 /* Run Script: Move Headers */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script: Move Headers";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SRC=\"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}\"\nDST=\"${TARGET_BUILD_DIR}/${COMMON_PUBLIC_HEADERS_FOLDER_PATH}\"\nrm -Rf \"$DST\"\nif [ ! -d $(dirname \"$DST\") ]; then\n    mkdir $(dirname \"$DST\")\nfi\ncp -fRp \"$SRC\" \"$DST\"";
+		};
 		33E20EF51F7B944400EB47ED /* Run Script: Copy Modulemap */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1544,7 +1559,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "MODULEMAP_FILE=\"${PROJECT_DIR}/Framework/Lumberjack/CocoaLumberjack.modulemap\"\nif [ ! -f \"${MODULEMAP_FILE}\" ]; then\n    echo \"Could not find modulemap file\"\n    exit 1\nfi\n\nDST_PATH=\"${CONFIGURATION_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/module.modulemap\"\nTMP_FILE=\"${DST_PATH}.tmp\"\nrm -f \"${DST_PATH}\" \"${TMP_FILE}\"\n\ncp -p \"${MODULEMAP_FILE}\" \"${TMP_FILE}\"\nsed -e \"s/framework module CocoaLumberjack/module CocoaLumberjack/\" \"${TMP_FILE}\" >> \"${DST_PATH}\"\nrm -f \"${TMP_FILE}\"\nif [ ! -f \"${DST_PATH}\" ]; then\n    echo \"Could not copy modulemap file\"\n    exit 1\nfi\n";
+			shellScript = "MODULEMAP_FILE=\"${PROJECT_DIR}/Framework/Lumberjack/CocoaLumberjack.modulemap\"\nif [ ! -f \"${MODULEMAP_FILE}\" ]; then\n    echo \"Could not find modulemap file\"\n    exit 1\nfi\n\nDST_PATH=\"${CONFIGURATION_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/module.modulemap\"\nTMP_DIR=$(mktemp -d)\nTMP_FILE=\"$TMP_DIR/CocoaLumberjack.modulemap\"\ncp -pf \"$MODULEMAP_FILE\" \"$TMP_FILE.tmp\"\nsed -e \"s/framework module CocoaLumberjack/module CocoaLumberjack/\" \"$TMP_FILE.tmp\" >> \"$TMP_FILE\"\n\ncmp --silent \"$TMP_FILE\" \"$DST_PATH\"\nif [ $? -ne 0 ]; then\n    cp -pf \"$TMP_FILE\" \"$DST_PATH\"\nfi\nrm -Rf \"$TMP_DIR\"\n\nif [ ! -f \"$DST_PATH\" ]; then\n    echo \"Could not copy modulemap file\"\n    exit 1\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3189,12 +3204,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "-";
+				COMMON_PUBLIC_HEADERS_FOLDER_PATH = "${PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_$(DEPLOYMENT_LOCATION)}";
 				COPY_PHASE_STRIP = NO;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.deusty.cocoalumberjack.macos;
 				PRODUCT_NAME = CocoaLumberjack;
-				PUBLIC_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_$(DEPLOYMENT_LOCATION))";
+				PUBLIC_HEADERS_FOLDER_PATH = "Headers_$(PRODUCT_NAME)/$(PRODUCT_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_NO = "Headers/$(PRODUCT_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_YES = "../../../BuildProductsPath/$(CONFIGURATION)/Headers/$(PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
@@ -3210,12 +3226,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "-";
+				COMMON_PUBLIC_HEADERS_FOLDER_PATH = "${PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_$(DEPLOYMENT_LOCATION)}";
 				COPY_PHASE_STRIP = NO;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.deusty.cocoalumberjack.macos;
 				PRODUCT_NAME = CocoaLumberjack;
-				PUBLIC_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_$(DEPLOYMENT_LOCATION))";
+				PUBLIC_HEADERS_FOLDER_PATH = "Headers_$(PRODUCT_NAME)/$(PRODUCT_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_NO = "Headers/$(PRODUCT_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_YES = "../../../BuildProductsPath/$(CONFIGURATION)/Headers/$(PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
@@ -3231,12 +3248,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "-";
+				COMMON_PUBLIC_HEADERS_FOLDER_PATH = "${PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_$(DEPLOYMENT_LOCATION)}";
 				COPY_PHASE_STRIP = NO;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.deusty.cocoalumberjack.macos;
 				PRODUCT_NAME = CocoaLumberjack;
-				PUBLIC_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_$(DEPLOYMENT_LOCATION))";
+				PUBLIC_HEADERS_FOLDER_PATH = "Headers_$(PRODUCT_NAME)/$(PRODUCT_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_NO = "Headers/$(PRODUCT_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_YES = "../../../BuildProductsPath/$(CONFIGURATION)/Headers/$(PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
@@ -3252,12 +3270,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "-";
+				COMMON_PUBLIC_HEADERS_FOLDER_PATH = "${PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_$(DEPLOYMENT_LOCATION)}";
 				COPY_PHASE_STRIP = NO;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.deusty.cocoalumberjack.macos;
 				PRODUCT_NAME = CocoaLumberjack;
-				PUBLIC_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_$(DEPLOYMENT_LOCATION))";
+				PUBLIC_HEADERS_FOLDER_PATH = "Headers_$(PRODUCT_NAME)/$(PRODUCT_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_NO = "Headers/$(PRODUCT_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH_DEPLOYMENT_LOCATION_IS_YES = "../../../BuildProductsPath/$(CONFIGURATION)/Headers/$(PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
