@@ -1545,7 +1545,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SRC=\"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}\"\nDST=\"${TARGET_BUILD_DIR}/${COMMON_PUBLIC_HEADERS_FOLDER_PATH}\"\nif [ ! -d $(dirname \"$DST\") ]; then\n    mkdir $(dirname \"$DST\")\nfi\n\ndiff -r \"$SRC\" \"$DST\" > /dev/null\nif [ $? == 0 ]; then\n    exit 0\nfi\nrm -Rf \"$DST\"\ncp -fRp \"$SRC\" \"$DST\"\n";
+			shellScript = "SRC=\"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}\"\nDST=\"${TARGET_BUILD_DIR}/${COMMON_PUBLIC_HEADERS_FOLDER_PATH}\"\nmkdir -p \"$DST\"\n\ndiff -r \"$SRC\" \"$DST\" > /dev/null\nif [ $? == 0 ]; then\n    exit 0\nfi\nrm -Rf \"$DST\"\ncp -fRp \"$SRC\" \"$DST\"\n";
 		};
 		33E20EF51F7B944400EB47ED /* Run Script: Copy Modulemap */ = {
 			isa = PBXShellScriptBuildPhase;
