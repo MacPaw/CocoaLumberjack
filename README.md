@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="LumberjackLogo.png" title="Lumberjack logo" float=left>
+  <img src="https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/LumberjackLogo.png" title="Lumberjack logo" float=left>
 </p>
 
 CocoaLumberjack
@@ -48,11 +48,11 @@ DDLog.add(fileLogger)
 
 ...
 
-DDLogVerbose("Verbose");
-DDLogDebug("Debug");
-DDLogInfo("Info");
-DDLogWarn("Warn");
-DDLogError("Error");
+DDLogVerbose("Verbose")
+DDLogDebug("Debug")
+DDLogInfo("Info")
+DDLogWarn("Warn")
+DDLogError("Error")
 ```
 
 ##### Obj-C version via CocoaPods
@@ -96,8 +96,8 @@ Cartfile
 github "CocoaLumberjack/CocoaLumberjack"
 ```
 
-- or [install manually](Documentation/GettingStarted.md#manual-installation)
-- read the [Getting started](Documentation/GettingStarted.md) guide, check out the [FAQ](Documentation/FAQ.md) section or the other [docs](Documentation/)
+- or [install manually](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/GettingStarted.md#manual-installation)
+- read the [Getting started](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/GettingStarted.md) guide, check out the [FAQ](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/FAQ.md) section or the other [docs](Documentation/)
 - if you find issues or want to suggest improvements, create an issue or a pull request
 - for all kinds of questions involving CocoaLumberjack, use the [Google group](http://groups.google.com/group/cocoalumberjack) or StackOverflow (use [#lumberjack](http://stackoverflow.com/questions/tagged/lumberjack)).
 
@@ -138,27 +138,29 @@ Configure your logging however you want. Change log levels per file (perfect for
 
 ### Documentation
 
-- **[Get started using Lumberjack](Documentation/GettingStarted.md)**<br/>
-- [Different log levels for Debug and Release builds](Documentation/XcodeTricks.md)<br/>
-- [Different log levels for each logger](Documentation/PerLoggerLogLevels.md)<br/>
-- [Use colors in the Xcode debugging console](Documentation/XcodeColors.md)<br/>
-- [Write your own custom formatters](Documentation/CustomFormatters.md)<br/>
-- [FAQ](Documentation/FAQ.md)<br/>
-- [Analysis of performance with benchmarks](Documentation/Performance.md)<br/>
-- [Common issues you may encounter and their solutions](Documentation/ProblemSolution.md)<br/>
-- [AppCode support](Documentation/AppCode-support.md)
+- **[Get started using Lumberjack](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/GettingStarted.md)**<br/>
+- [Different log levels for Debug and Release builds](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/XcodeTricks.md)<br/>
+- [Different log levels for each logger](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/PerLoggerLogLevels.md)<br/>
+- [Use colors in the Xcode debugging console](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/XcodeColors.md)<br/>
+- [Write your own custom formatters](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/CustomFormatters.md)<br/>
+- [FAQ](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/FAQ.md)<br/>
+- [Analysis of performance with benchmarks](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/Performance.md)<br/>
+- [Common issues you may encounter and their solutions](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/ProblemSolution.md)<br/>
+- [AppCode support](https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/AppCode-support.md)
 - **[Full Lumberjack documentation](Documentation/)**<br/>
 
 ### Requirements 
 The current version of Lumberjack requires:
-- Xcode 8 or later
-- Swift 3.0 or later
-- iOS 5 or later
-- OS X 10.7 or later
+- Xcode 9 or later
+- Swift 4.0 or later
+- iOS 6 or later
+- OS X 10.8 or later
 - WatchOS 2 or later
 - TVOS 9 or later
 
 #### Backwards compability
+- for iOS 5 and OS X 10.7, use the 3.3 version
+- for Xcode 8 and Swift 3, use the 3.2 version
 - for Xcode 7.3 and Swift 2.3, use the 2.4.0 version
 - for Xcode 7.3 and Swift 2.2, use the 2.3.0 version
 - for Xcode 7.2 and 7.1, use the 2.2.0 version
@@ -183,12 +185,13 @@ The current version of Lumberjack requires:
 - [Dmitry Vorobyov](https://github.com/dvor)
 - [Bogdan Poplauschi](https://github.com/bpoplauschi)
 - [C.W. Betts](https://github.com/MaddTheSane)
+- [Koichi Yokota (sushichop)](https://github.com/sushichop)
 
 ### License
-- CocoaLumberjack is available under the BSD license. See the [LICENSE file](https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/LICENSE.txt).
+- CocoaLumberjack is available under the BSD 3 license. See the [LICENSE file](https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/LICENSE).
 
 ### Architecture
 
 <p align="center" >
-    <img src="Documentation/CocoaLumberjackClassDiagram.png" title="CocoaLumberjack class diagram">
+    <img src="https://raw.githubusercontent.com/CocoaLumberjack/CocoaLumberjack/master/Documentation/CocoaLumberjackClassDiagram.png" title="CocoaLumberjack class diagram">
 </p>
