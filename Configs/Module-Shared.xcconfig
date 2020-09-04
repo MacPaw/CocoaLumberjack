@@ -192,7 +192,7 @@ HEADER_SEARCH_PATHS = $(inherited)
 IPHONEOS_DEPLOYMENT_TARGET = 9.0
 
 // This is a list of paths to be added to the `runpath` search path list for the image being created. At runtime, `dyld` uses the `runpath` when searching for dylibs whose load path begins with `@rpath/`.
-LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+//LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 
 // This is a list of paths to folders to be searched by the linker for libraries used by the product. Paths are delimited by whitespace, so any paths with spaces in them need to be properly quoted.
 LIBRARY_SEARCH_PATHS = $(inherited)

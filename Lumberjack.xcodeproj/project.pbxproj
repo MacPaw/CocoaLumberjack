@@ -630,6 +630,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "$(SOURCE_ROOT)/Sources/$(TARGET_NAME)/Supporting Files/$(TARGET_NAME)-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 			};
 			name = Debug;
 		};
@@ -640,8 +641,87 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "$(SOURCE_ROOT)/Sources/$(TARGET_NAME)/Supporting Files/$(TARGET_NAME)-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 			};
 			name = Release;
+		};
+		68F64E6B250247F000CD0DE9 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 435F03AA2174A39200A86B2D /* Module-Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Deployment;
+		};
+		68F64E6C250247F000CD0DE9 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRIVATE_HEADERS_FOLDER_PATH = "$(BUILT_PRODUCTS_DIR)/private";
+				PRODUCT_BUNDLE_IDENTIFIER = com.deusty.cocoalumberjack;
+				PRODUCT_NAME = CocoaLumberjack;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(BUILT_PRODUCTS_DIR)/include";
+			};
+			name = Deployment;
+		};
+		68F64E6D250247F000CD0DE9 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Xcode/Lumberjack/CocoaLumberjack-Prefix.pch";
+				INFOPLIST_FILE = "$(SOURCE_ROOT)/Sources/$(TARGET_NAME)/Supporting Files/$(TARGET_NAME)-Info.plist";
+			};
+			name = Deployment;
+		};
+		68F64E6E250247F000CD0DE9 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "$(SOURCE_ROOT)/Sources/$(TARGET_NAME)/Supporting Files/$(TARGET_NAME)-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+			};
+			name = Deployment;
+		};
+		68F64E6F250247FB00CD0DE9 /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 435F03AB2174A39200A86B2D /* Module-Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Test;
+		};
+		68F64E70250247FB00CD0DE9 /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRIVATE_HEADERS_FOLDER_PATH = "$(BUILT_PRODUCTS_DIR)/private";
+				PRODUCT_BUNDLE_IDENTIFIER = com.deusty.cocoalumberjack;
+				PRODUCT_NAME = CocoaLumberjack;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(BUILT_PRODUCTS_DIR)/include";
+			};
+			name = Test;
+		};
+		68F64E71250247FB00CD0DE9 /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Xcode/Lumberjack/CocoaLumberjack-Prefix.pch";
+				INFOPLIST_FILE = "$(SOURCE_ROOT)/Sources/$(TARGET_NAME)/Supporting Files/$(TARGET_NAME)-Info.plist";
+			};
+			name = Test;
+		};
+		68F64E72250247FB00CD0DE9 /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "$(SOURCE_ROOT)/Sources/$(TARGET_NAME)/Supporting Files/$(TARGET_NAME)-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+			};
+			name = Test;
 		};
 		DCB3186414EB418E001CFBEE /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -664,7 +744,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18F3BFE91A81E06E00692297 /* Debug */,
+				68F64E70250247FB00CD0DE9 /* Test */,
 				18F3BFEA1A81E06E00692297 /* Release */,
+				68F64E6C250247F000CD0DE9 /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -673,7 +755,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				19FF46071B8B4CF400B43179 /* Debug */,
+				68F64E71250247FB00CD0DE9 /* Test */,
 				19FF46081B8B4CF400B43179 /* Release */,
+				68F64E6D250247F000CD0DE9 /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -682,7 +766,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				19FF46191B8B4D1400B43179 /* Debug */,
+				68F64E72250247FB00CD0DE9 /* Test */,
 				19FF461A1B8B4D1400B43179 /* Release */,
+				68F64E6E250247F000CD0DE9 /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -691,7 +777,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCB3186414EB418E001CFBEE /* Debug */,
+				68F64E6F250247FB00CD0DE9 /* Test */,
 				DCB3186514EB418E001CFBEE /* Release */,
+				68F64E6B250247F000CD0DE9 /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
