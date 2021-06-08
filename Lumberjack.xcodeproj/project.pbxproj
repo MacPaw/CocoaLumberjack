@@ -377,7 +377,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1379AA3B22F3385500802709 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		18F3BF0F1A81D8B700692297 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaLumberjackSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F3BF151A81D9A400692297 /* CocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjack.h; sourceTree = "<group>"; };
 		18F3BF5F1A81DD2E00692297 /* iOSSwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSwiftTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -424,6 +423,7 @@
 		55CCBF0519BA679200957A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55F88BF71B3CB15C00E31255 /* CocoaLumberjackSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjackSwift.h; sourceTree = "<group>"; };
 		5D34A74620B00EB400233A79 /* DDAssert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDAssert.swift; sourceTree = "<group>"; };
+		68F56D27266F98B700836805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		93483CFA1D09E39000AD40D6 /* CLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLIColor.h; path = CLI/CLIColor.h; sourceTree = "<group>"; };
 		93483CFB1D09E39000AD40D6 /* CLIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLIColor.m; path = CLI/CLIColor.m; sourceTree = "<group>"; };
 		DA9C20BD192A0E0000AB7171 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
@@ -1716,7 +1716,7 @@
 		1379AA3A22F3385500802709 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1379AA3B22F3385500802709 /* en */,
+				68F56D27266F98B700836805 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
