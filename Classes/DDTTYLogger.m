@@ -79,6 +79,9 @@
 
 #define MAP_TO_TERMINAL_APP_COLORS 1
 
+#if __has_include(<AppKit/NSColorSpace.h>)
+@import AppKit.NSColorSpace;
+#endif
 
 @interface DDTTYLoggerColorProfile : NSObject {
     @public
@@ -724,7 +727,7 @@ static DDTTYLogger *sharedInstance;
 
     // OS X with AppKit
 
-    NSColor *safeColor = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColor *safeColor = [color colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
 
     [safeColor getRed:rPtr green:gPtr blue:bPtr alpha:NULL];
     #endif /* if TARGET_OS_IPHONE */
