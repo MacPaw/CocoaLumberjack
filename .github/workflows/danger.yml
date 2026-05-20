@@ -14,9 +14,6 @@ jobs:
     permissions:
       contents: read
     steps:
-      # Checkout PR head so modified/created files are on disk.
-      # Dangerfile reads files via FileManager and runs SwiftLint against
-      # Sources/ — both require the PR's actual file tree.
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -24,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: danger/swift
-        uses: docker://ghcr.io/danger/danger-swift-with-swiftlint@sha256:5aa0b16b292bea28d5fef202fa777ac9599e472c86c448a285d49052f241a1be # 3.15.0
+        uses: docker://ghcr.io/danger/danger-swift-with-swiftlint@sha256:ed07386a85f1328619b49e3cfd737ffce351fcd2620d858cfc997d7e3e401b59 # 3.15.0
         with:
           args: --failOnErrors --no-publish-check
         env:
