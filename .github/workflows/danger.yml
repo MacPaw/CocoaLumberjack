@@ -19,6 +19,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.sha }} # explicit: checkout base branch, never fork code
+          persist-credentials: false
       - name: danger/swift
         uses: docker://ghcr.io/danger/danger-swift-with-swiftlint@sha256:5aa0b16b292bea28d5fef202fa777ac9599e472c86c448a285d49052f241a1be # 3.15.0
         with:
