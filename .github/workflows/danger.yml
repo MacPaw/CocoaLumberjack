@@ -1,7 +1,7 @@
 name: Danger
 
 on:
-  pull_request_target:
+  pull_request:
     branches: [ master ]
 
 env:
@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: write
     steps:
       # Checkout PR head so modified/created files are on disk.
       # Dangerfile reads files via FileManager and runs SwiftLint against
@@ -23,21 +22,6 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
           fetch-depth: 0
-
-      # Fetch only Dangerfile.swift from the trusted base branch into a
-      # staging directory, then overwrite the PR copy. This prevents a
-      # fork-modified Dangerfile from executing with a write-capable token
-      # while keeping the rest of the workspace at PR-head state.
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-        with:
-          ref: ${{ github.event.pull_request.base.sha }}
-          persist-credentials: false
-          path: .danger-base
-          sparse-checkout: Dangerfile.swift
-          sparse-checkout-cone-mode: false
-
-      - name: Use trusted Dangerfile from base branch
-        run: cp .danger-base/Dangerfile.swift Dangerfile.swift
 
       - name: danger/swift
         uses: docker://ghcr.io/danger/danger-swift-with-swiftlint@sha256:5aa0b16b292bea28d5fef202fa777ac9599e472c86c448a285d49052f241a1be # 3.15.0
